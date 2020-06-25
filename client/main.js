@@ -4,11 +4,14 @@ tetrisLocal.element.classList.add('local');
 tetrisLocal.run();
 
 const connectionManager = new ConnectionManager(tetrisManager);
-connectionManager.connect('ws://' + window.location.hostname + ':9000');
+//connectionManager.connect('ws://' + window.location.hostname + ':9000');
+connectionManager.connect('ws://localhost:9000');
 
 const keyListener = (event) => {
     [
-        [65, 68, 81, 69, 83],
+        //[65, 68, 81, 69, 83],
+        // left arrow, right arrow, rotate left (counter), rotate right, down arrow
+        [37, 39, 90, 38, 40],
     ].forEach((key, index) => {
         const player = tetrisLocal.player;
         if (event.type === 'keydown') {
